@@ -5,7 +5,7 @@ Both functions round datetime values down to specified interval defined in the p
 
 Examples: Sales by week, avg call volume every 15 minutes, widgets made per hour.
 
-Once this summarization is achieved it is possible there will be "gaps" in the timeline. (Perhaps, no widgets were made in an particular hour, or there where no calls on a particular day). **These gaps may be hard to notice on a graph or report even though they may represent a significant business exception.**  
+Once this summarization is achieved it is possible there will be "gaps" in the timeline. (Perhaps, no widgets were made in an particular hour, or there where no calls on a particular day). **These gaps may be hard to notice on a graph or report even though they may represent significant business exceptions.**  
 
 That is were the table-valued function steps in. This function will generate a contiguous timeline at an interval defined in the parameter list. Once this table is generated, outer join the summary query against the generated timeline.
 
@@ -96,13 +96,13 @@ There are 17 predefined options for the 'interval' parameter:
 
 ```sql
 --Example of 'week' parameter option
-SELECT t.Date_Range
+SELECT t.DT_Range
 FROM dbo.generate_dt_range( 'week', '20170105 3:56:47', '20170318 17:32:38' ) AS t;
 
 returns:
 
 +-------------------------+
-|       Date_Range        |
+|       DT_Range        |
 +-------------------------+
 | 2017-01-01 00:00:00.000 |
 | 2017-01-08 00:00:00.000 |
@@ -118,13 +118,13 @@ returns:
 +-------------------------+
 
 --Example of 'month' parameter option
-SELECT t.Date_Range
+SELECT t.DT_Range
 FROM dbo.generate_dt_range( 'month', '20170105 3:56:47', '20170318 17:32:38' ) AS t;
 
 returns:
 
 +-------------------------+
-|       Date_Range        |
+|       DT_Range        |
 +-------------------------+
 | 2017-01-01 00:00:00.000 |
 | 2017-02-01 00:00:00.000 |
@@ -132,13 +132,13 @@ returns:
 +-------------------------+
 
 --Example of '15min' parameter option
-SELECT t.Date_Range
+SELECT t.DT_Range
 FROM dbo.generate_dt_range( '15min', '20170318 3:56:47', '20170318 17:32:38' ) AS t;
 
 returns:
 
 +-------------------------+
-|       Date_Range        |
+|       DT_Range        |
 +-------------------------+
 | 2017-03-18 13:45:00.000 |
 | 2017-03-18 14:00:00.000 |

@@ -1,15 +1,14 @@
 # Datetime Truncation User-Defined Functions for SQL Server
 
-This project contains two user-defined functions. One is a scalar-value function, the other is table-valued function.
-Both functions round datetime values down to specified interval defined in the parameter list. These functions were designed to be used together. The table-valued function generates a range of dates at a specified interval for a timeline. The scalar-value function is designed to transform a datetime field in an aggregation query for summarization of vlaues against consistent datetime frequency interval. 
+This project contains two user-defined functions. One is a scalar-value function; the other is table-valued function. Both functions round datetime values down to specified interval defined in the parameter list. These functions were designed to be used together. The table-valued function generates a range of dates at a specified interval for a timeline. The scalar-value function is designed to transform a datetime field in an aggregation query for summarization of values against consistent datetime frequency interval.
 
-Examples: Sales by week, avg call volume every 15 minutes, widgets made per hour.
+Examples: Sales by week, average call volume every 15 minutes, widgets made per hour.
 
-Once this summarization is achieved it is possible there will be "gaps" in the timeline. (Perhaps, no widgets were made in an particular hour, or there where no calls on a particular day). **These gaps may be hard to notice on a graph or report even though they may represent significant business exceptions.**  
+Once this summarization is achieved it is possible there will be "gaps" in the timeline. (Perhaps, no widgets were made in a particular hour, or there were no calls on a particular day). **These gaps may be hard to notice on a graph or report even though they may represent significant business exceptions.**
 
-That is were the table-valued function steps in. This function will generate a contiguous timeline at an interval defined in the parameter list. Once this table is generated, outer join the summary query against the generated timeline.
+That is where the table-valued function steps in. This function will generate a contiguous timeline at an interval defined in the parameter list. Once this table is generated, it is possible to outer join the summary query against the generated timeline.
+Once this is done, exceptions will be clearly visible.
 
-Once this is done, exceptions will be clearly visible. 
 
 ## dt_trunc
 **dt_trunc** is a scalar-valued function and accepts two parameters @trunctype and @date and return a datetime datatype.

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 13.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Scalar-Value Truncation", "Scalar-Value Truncation\Scalar-Value Truncation.ssmssqlproj", "{C709AE87-375D-4B85-B146-1E4384543B36}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Table-Value Truncated Range", "Table-Value Truncated Range\Table-Value Truncated Range.ssmssqlproj", "{C3541732-1FB1-4BE5-A708-FDDED969659F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C709AE87-375D-4B85-B146-1E4384543B36}.Default|Default.ActiveCfg = Default
+		{C3541732-1FB1-4BE5-A708-FDDED969659F}.Default|Default.ActiveCfg = Default
+		{DF09C157-6122-4F3D-93A8-017F38F0DA7B}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

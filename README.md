@@ -1,6 +1,6 @@
 # Datetime Truncation User-Defined Functions for SQL Server
 
-This project contains two user-defined functions. One is a scalar-value function; the other is table-valued function. Both functions round datetime values down to specified interval defined in the parameter list. These functions were designed to be used together. The table-valued function generates a range of dates at a specified interval for a timeline. The scalar-value function is designed to transform a datetime field in an aggregation query for summarization of values against consistent datetime frequency interval.
+This project contains two user-defined functions. One is a scalar-value function; the other is table-valued function. Both functions round datetime values truncated (rounded down) to specified interval defined in the parameter list. These functions were designed to be used together. The table-valued function generates a range of dates at a specified interval for a timeline. The scalar-value function is designed to transform a datetime field in an aggregation query for summarization of values against consistent datetime frequency interval.
 
 Examples: Sales by week, average call volume every 15 minutes, widgets made per hour.
 
@@ -18,7 +18,7 @@ Once this is done, exceptions will be clearly visible.
 dbo.dt_trunc( '<trunctype>'  , <datetime field> || <expression> )
 ```
 There are 17 predefined options for the 'trunctype' parameter:
-```sql
+```
 'day'     - Rounds down to the start of day
 'week'    - Rounds down to the start of week (Sunday)
 'weekmon' - Rounds down to the start of week (Monday)

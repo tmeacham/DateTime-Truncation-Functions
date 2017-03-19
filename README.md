@@ -71,7 +71,7 @@ There are 17 predefined options for the 'trunctype' parameter:
 dbo.generate_dt_range( '<interval>'  , <datetime value> , <datetime value> )
 ```
 There are 17 predefined options for the 'interval' parameter:
-```sql
+```
 'day'     - Rounds @startdt down to the start of day
 'week'    - Rounds @startdt down to the start of week (Sunday)
 'weekmon' - Rounds @startdt down to the start of week (Monday)

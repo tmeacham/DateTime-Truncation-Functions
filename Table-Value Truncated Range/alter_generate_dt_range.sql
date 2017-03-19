@@ -1,7 +1,7 @@
 ALTER FUNCTION dbo.generate_dt_range(@interval AS NVARCHAR(8),
                                      @startdt AS  DATETIME,
                                      @enddt AS    DATETIME)
-RETURNS @date_range TABLE([Date_Range] DATETIME)
+RETURNS @dt_range TABLE([DT_Range] DATETIME)
 AS
 
 /******************************************************************************************************
@@ -29,7 +29,7 @@ Example of use:
 SELECT dr.Date_Range
 FROM dbo.generate_dt_range('week', '20170101', '20170318') AS dr;
 -Returns
-Date_Range
+DT_Range
 2017-01-01 00:00:00.000
 2017-01-08 00:00:00.000
 2017-01-15 00:00:00.000
@@ -49,7 +49,7 @@ day, and there are days that do not have sales, this would lead to a gap in your
 **To acheive this join, I recommended using the 'dt_trunc' function in your summary query.
 Example: 
 SELECT
-       dr.date_range
+       dr.dt_range
      , s.daily_sales
 FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
        LEFT JOIN
@@ -76,7 +76,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(dd, 1, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(dd, 1, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -91,7 +91,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(ww, 1, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(ww, 1, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -106,7 +106,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(ww, 1, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(ww, 1, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -121,7 +121,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(mm, 1, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(mm, 1, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -136,7 +136,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(qq, 1, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(qq, 1, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -151,7 +151,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(yy, 1, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(yy, 1, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -166,7 +166,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(hh, 1, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(hh, 1, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -181,7 +181,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(mi, 30, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(mi, 30, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -196,7 +196,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(mi, 15, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(mi, 15, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -211,7 +211,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(mi, 10, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(mi, 10, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -226,7 +226,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(mi, 5, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(mi, 5, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -241,7 +241,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(mi, 1, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(mi, 1, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -256,7 +256,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(ss, 1, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(ss, 1, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -271,7 +271,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(ss, 30, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(ss, 30, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -286,7 +286,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(ss, 10, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(ss, 10, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -301,7 +301,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                       SELECT DATEADD(ss, 5, t.[DT_RANGE])
                       FROM dates AS t
                       WHERE DATEADD(ss, 5, t.[DT_RANGE]) <= @enddt)
-                      INSERT INTO @date_range
+                      INSERT INTO @dt_range
                              SELECT [DT_RANGE]
                              FROM dates
                              OPTION(MAXRECURSION 10000);
@@ -318,7 +318,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                               SELECT DATEADD(MM, 6, t.[DT_RANGE])
                               FROM dates AS t
                               WHERE DATEADD(MM, 6, t.[DT_RANGE]) <= @enddt)
-                              INSERT INTO @date_range
+                              INSERT INTO @dt_range
                                      SELECT [DT_RANGE]
                                      FROM dates
                                      OPTION(MAXRECURSION 10000);
@@ -333,7 +333,7 @@ FROM   dbo.generate_dt_range('day', '20170101', '20170318') AS dr
                               SELECT DATEADD(MM, 6, t.[DT_RANGE])
                               FROM dates AS t
                               WHERE DATEADD(MM, 6, t.[DT_RANGE]) <= @enddt)
-                              INSERT INTO @date_range
+                              INSERT INTO @dt_range
                                      SELECT [DT_RANGE]
                                      FROM dates
                                      OPTION(MAXRECURSION 10000);

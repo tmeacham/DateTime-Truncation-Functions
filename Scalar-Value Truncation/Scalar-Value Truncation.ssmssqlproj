@@ -2,19 +2,32 @@
 <SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Scalar-Value Truncation">
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
-      <Items />
+      <Items>
+        <ConnectionNode Name="APOLLO:APOLLO\tomme">
+          <Created>2017-03-19T17:24:37.0514787-04:00</Created>
+          <Type>SQL</Type>
+          <Server>APOLLO</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="alter_dt_trunc_function.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:APOLLO:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>APOLLO</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>alter_dt_trunc_function.sql</FullPath>
         </FileNode>
         <FileNode Name="create_dt_trunc_function.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:APOLLO:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>APOLLO</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>create_dt_trunc_function.sql</FullPath>
         </FileNode>

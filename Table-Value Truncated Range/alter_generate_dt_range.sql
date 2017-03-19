@@ -7,6 +7,7 @@ AS
 /******************************************************************************************************
 Author: Tom Meacham
 Create date: 03/08/2017
+Website: https://github.com/tmeacham/DateTime-Truncation-Functions
 Note: **Code is offered AS-IS with no warranties expressed or implied**
 Description: 
 Q. What Does this function do?

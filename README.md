@@ -1,6 +1,15 @@
 # Datetime Truncation User-Defined Functions for SQL Server
 
 This project contains two user-defined functions. One is a scalar-value function, the other is table-valued function.
+Both functions round datetime values down to specified interval defined in the parameter list. These functions were designed to be used together. The table-valued function generates a range of dates at a specified interval for a timeline. The scalar-value function is designed to transform a datetime field in an aggregation query for summarization of vlaues against consistent datetime frequency interval. 
+
+Examples: Sales by week, avg call volume every 15 minutes, widgets made per hour.
+
+Once this summarization is achieved it is possible there will be "gaps" in the timeline. (Perhaps, no widgets were made in an particular hour, or there where no calls on a particular day). **These gaps may be hard to notice on a graph or report even though they may represent a significant business exception.**  
+
+That is were the table-valued function steps in. This function will generate a contiguous timeline at an interval defined in the parameter list. Once this table is generated, outer join the summary query against the generated timeline.
+
+Once this is done, exceptions will be clearly visible. 
 
 ## dt_trunc
 **dt_trunc** is a scalar-valued function and accepts two parameters @trunctype and @date and return a datetime datatype.
@@ -56,13 +65,13 @@ There are 17 predefined options for the 'trunctype' parameter:
 ```
 
 ## generate_dt_range
-**generate_dt_range** is a table-valued function and accepts three parameters @interval, @startdt, and @enddt and returns a contiguous range of datatype fields. Before the range is generated, the @startdt parameter is rounded down the start of the interval defined in the @interval parameter. After that, the range will continue to generate until until it reaches the inclusive datetime boundry set in the @enddt parameter. 
+**generate_dt_range** is a table-valued function and accepts three parameters @interval, @startdt, and @enddt and returns a contiguous timeline of datatype fields. Before the range is generated, the @startdt parameter is rounded down the start of the interval defined in the @interval parameter. After that, the range will continue to generate until until it reaches the inclusive datetime boundry set in the @enddt parameter. 
 
 ### generate_dt_range Function Syntax:
 ```
 dbo.generate_dt_range( '<interval>'  , <datetime value> , <datetime value> )
 ```
-There are 17 predefined options for the 'trunctype' parameter:
+There are 17 predefined options for the 'interval' parameter:
 ```sql
 'day'     - Rounds @startdt down to the start of day
 'week'    - Rounds @startdt down to the start of week (Sunday)

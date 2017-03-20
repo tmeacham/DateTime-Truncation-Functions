@@ -68,7 +68,7 @@ There are 17 predefined options for the 'trunctype' parameter:
 
 ### generate_dt_range Function Syntax:
 ```
-dbo.generate_dt_range( '<interval>'  , <datetime value> , <datetime value> )
+dbo.generate_dt_range( '<interval>'  , <starting datetime value> , <ending datetime value> )
 ```
 There are 17 predefined options for the 'interval' parameter:
 ```

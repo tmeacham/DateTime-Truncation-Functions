@@ -164,7 +164,7 @@ The calendar table with a a daily interval from Jan 1, 2000 - Jan 1, 2070 by def
 This is is adustable by changing the start and stop dates in the script. 
 Depending on the size of the database, you may need to add or remove cross joins
 of the sys.objects table that are used to feed the numbers table. 
-
+```
 +------------------+--------------------------+-----------+
 | ORDINAL_POSITION |       COLUMN_NAME        | DATA_TYPE |
 +------------------+--------------------------+-----------+
@@ -210,3 +210,4 @@ of the sys.objects table that are used to feed the numbers table.
 |               40 | LastDOWInMonth           | int       |
 |               41 | HOLIDAY_NAME             | varchar   |
 +------------------+--------------------------+-----------+
+```

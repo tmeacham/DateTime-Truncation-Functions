@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Datetime Truncation Scalar Functions">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="TMEACHAM-PC3:IDASHBOARDS\tmeacham">
+          <Created>2019-02-18T16:19:39.0985487-05:00</Created>
+          <Type>SQL</Type>
+          <Server>TMEACHAM-PC3</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="ALTER_DT_FUNCTIONS.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:TMEACHAM-PC3:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>TMEACHAM-PC3</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>ALTER_DT_FUNCTIONS.sql</FullPath>
+        </FileNode>
+        <FileNode Name="CREATE_DT_FUNCTIONS.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:TMEACHAM-PC3:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>TMEACHAM-PC3</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>CREATE_DT_FUNCTIONS.sql</FullPath>
+        </FileNode>
+        <FileNode Name="dt_trunc-TEST.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:TMEACHAM-PC3:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>TMEACHAM-PC3</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>dt_trunc-TEST.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

@@ -157,3 +157,56 @@ returns:
 | 2017-03-18 17:30:00.000 |
 +-------------------------+
 ```
+# Calendar Table Create Script for for SQL Server
+
+The script will create a table called Calendar with the structure found below.
+The calendar table with a a daily interval from Jan 1, 2000 - Jan 1, 2070 by default
+This is is adustable by changing the start and stop dates in the script. 
+Depending on the size of the database, you may need to add or remove cross joins
+of the sys.objects table that are used to feed the numbers table. 
+
++------------------+--------------------------+-----------+
+| ORDINAL_POSITION |       COLUMN_NAME        | DATA_TYPE |
++------------------+--------------------------+-----------+
+|                1 | DateKey                  | int       |
+|                2 | DateDT                   | datetime  |
+|                3 | DateStyle112             | char      |
+|                4 | DateStyle101             | char      |
+|                5 | DateStyleMMYYY           | char      |
+|                6 | DayOfWeek                | int       |
+|                7 | DayOfWeek_Mon_First      | int       |
+|                8 | DayOfWeekName            | nvarchar  |
+|                9 | DayOfWeekNameShort       | nvarchar  |
+|               10 | DayIsWeekDay             | int       |
+|               11 | DayIsWeekEnd             | int       |
+|               12 | DayOfWeekInstanceInMonth | bigint    |
+|               13 | DayOfMonth               | int       |
+|               14 | DayOfMonthSuffix         | varchar   |
+|               15 | DayOfYear                | int       |
+|               16 | WeekOfYear               | int       |
+|               17 | ISOweekOfYear            | int       |
+|               18 | MonthOfYear              | int       |
+|               19 | MonthName                | nvarchar  |
+|               20 | MonthNameShort           | nvarchar  |
+|               21 | QuarterOfYear            | int       |
+|               22 | QuarterOfYearString      | varchar   |
+|               23 | Year                     | int       |
+|               24 | YearAndQuarter           | varchar   |
+|               25 | FirstDayOfWeek_Sun       | datetime  |
+|               26 | FirstDayOfWeek_Mon       | datetime  |
+|               27 | FirstDayOfMonth          | datetime  |
+|               28 | FirstDayOfQuarter        | datetime  |
+|               29 | FirstDayOfYear           | datetime  |
+|               30 | LastDayOfWeek_Sat        | datetime  |
+|               31 | LastDayOfWeek_Sun        | datetime  |
+|               32 | LastDayOfMonth           | datetime  |
+|               33 | LastDayOfQuarter         | datetime  |
+|               34 | LastDayOfYear            | datetime  |
+|               35 | FirstDayOfNextWeek_Sun   | datetime  |
+|               36 | FirstDayOfNextWeek_Mon   | datetime  |
+|               37 | FirstDayOfNextMonth      | datetime  |
+|               38 | FirstDayOfNextQuarter    | datetime  |
+|               39 | FirstDayOfNextYear       | datetime  |
+|               40 | LastDOWInMonth           | int       |
+|               41 | HOLIDAY_NAME             | varchar   |
++------------------+--------------------------+-----------+
